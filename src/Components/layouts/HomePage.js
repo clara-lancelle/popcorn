@@ -1,10 +1,10 @@
 import React from "react";
+import MovieList from "../MovieList";
 
 function HomePage() {
     return (
         <div>
-            <h1>HomePage</h1>
-
+            <MovieList />
         </div>
     );
 }
