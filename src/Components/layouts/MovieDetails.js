@@ -48,7 +48,8 @@ function MovieDetails() {
     }, [movieId]);
     return (
         <>
-            <h1 className="my-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 underline underline-offset-3 decoration-8 decoration-red-400 text-center py-5">{movieDetails.title}</h1>
+            <h1 className="mt-5 mb-2 text-4xl font-extrabold leading-none tracking-tight text-gray-900 underline underline-offset-3 decoration-8 decoration-red-400 text-center py-5">{movieDetails.title}</h1>
+            <h2 className="italic mb-5 text-xl text-gray-500 text-center font-thin">" {movieDetails.tagline} "</h2>
             <div className="grid grid-cols-2 w-[95%] md:w-[70%] mx-auto">
                 {console.log(movieDetails)}
                 <div className="w-full">
@@ -74,7 +75,7 @@ function MovieDetails() {
                         <p className="text-xs ml-3 text-gray-500 italic">{movieDetails.vote_average} /10</p>
                     </div>
                     <div className="w-full">
-                        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-800">
+                        <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-800">
                             <li className="flex gap-1 items-center py-3 sm:py-4 text-sm font-medium text-gray-900 truncate">Release date : <p className="text-gray-800 font-thin">{movieDetails?.release_date}</p></li>
                             <li className="flex gap-1 items-center py-3 sm:py-4 text-sm font-medium text-gray-900 truncate">Budget : <p className="text-gray-800 font-thin">{movieDetails?.budget}</p></li>
                             <li className="py-3 sm:py-4 text-gray-800 font-thin">{movieDetails.overview}</li>
