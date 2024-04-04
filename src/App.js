@@ -5,7 +5,7 @@ import FavPage from './Components/layouts/FavPage';
 import DisplayMovies from './Components/DisplayMovies';
 import Navbar from './Components/layouts/Navbar';
 import AsideCategories from './Components/AsideCategories';
-import MovieDetails from './Components/MovieDetails';
+import HandleMovieDetails from './Components/HandleMovieDetails';
 
 function App() {
   const [genre, setGenre] = useState({})
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<DisplayMovies genre={genre} setCurrentMovie={setCurrentMovie} currentMovie={currentMovie} />} />
         <Route path="/fav" element={<FavPage />} />
-        <Route path="/details" element={<MovieDetails />} />
+        <Route path="/details" element={<HandleMovieDetails />} />
       </Routes>
       <AsideCategories setGenre={setGenre} />
       <footer className="border-gray-200 bg-gray-100 justify-center w-full mt-5 flex items-center mx-auto p-4">
