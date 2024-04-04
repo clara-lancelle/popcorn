@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Route, Routes } from "react-router-dom";
 import FavPage from './Components/layouts/FavPage';
-import DisplayMovies from './Components/layouts/DisplayMovies';
+import DisplayMovies from './Components/DisplayMovies';
 import Navbar from './Components/layouts/Navbar';
-import AsideCategories from './Components/layouts/AsideCategories';
-import MovieDetails from './Components/layouts/MovieDetails';
+import AsideCategories from './Components/AsideCategories';
+import MovieDetails from './Components/MovieDetails';
 
 function App() {
   const [genre, setGenre] = useState({})

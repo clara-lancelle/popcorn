@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import useDebounce from "../../useDebounce";
+import MovieList from "./MovieList";
 
 function Navbar() {
     const [search, setSearch] = useDebounce(1000);
-    console.log(search)
     const [results, setResults] = useState([])
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/search/movie?query=${search}`, {
@@ -34,7 +34,6 @@ function Navbar() {
                     </div>
                     <input type="search" onInput={(e) => setSearch(e.target.value.replace(/ /g, '+'))} id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Search..." />
                 </div>
-                {console.log(results)}
                 <button data-collapse-toggle="navbar-solid-bg" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-solid-bg" aria-expanded="false">
                     <span className="sr-only">Open main menu</span>
                     <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -60,27 +59,7 @@ function Navbar() {
                 </div>
             </div>
             {Object.keys(results).length > 0 &&
-                <div className="z-20 w-full md:w-[70%] mx-auto bg-white divide-y overflow-hidden max-w-full divide-gray-100 rounded-lg shadow ">
-                    {console.log('c')}
-                    {results?.map(({ id, title, original_title, overview, release_date, backdrop_path, ...rest }) => (
-                        <div className="flex w-full px-4 py-3 hover:bg-gray-100">
-                            <div class="flex-shrink-0">
-                                <img className="object-contain h-20" src={`https://image.tmdb.org/t/p/w200/${backdrop_path}`} alt="movie poster" />
-                            </div>
-                            <div class="w-[70%] ps-3">
-                                <p class=" text-sm mb-1.5 font-semibold text-gray-900">{title}</p>
-                                {original_title != title &&
-                                    <p class=" text-sm mb-1.5 text-gray-800">Original title : <span className="italic text-xs text-gray-600">"{original_title}"</span></p>
-                                }
-                                <p class=" text-sm mb-1.5 text-gray-800">Release date : <span className="text-gray-500 text-xs mb-1.5">{release_date}</span></p>
-                                <p className="text-xs mb-1.5 text-gray-500 max-w-full truncate">{overview}</p>
-                                <Link to={`/details?movie=${id}`} onClick={() => setResults([])} className="text-xs text-blue-600">
-                                    see more
-                                </Link>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                <MovieList setResults={setResults} list={results} />
             }
         </nav >
     );

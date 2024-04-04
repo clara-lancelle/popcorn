@@ -1,9 +1,10 @@
 import React from "react";
 
 function FavPage() {
+
   return (
     <div>
-      <h1>FavPage</h1>
+      <h1>Favorites Movies</h1>
     </div>
   );
 }

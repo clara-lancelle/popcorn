@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
 function Card({ movie, index, setCurrentMovie }) {
     const [showModal, setShowModal] = useState(false);
     return (
