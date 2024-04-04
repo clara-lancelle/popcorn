@@ -1,23 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import useDebounce from "../../useDebounce";
-import MovieList from "./MovieList";
+import HandleSearch from "../HandleSearch";
 
 function Navbar() {
     const [search, setSearch] = useDebounce(1000);
-    const [results, setResults] = useState([])
-    useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/search/movie?query=${search}`, {
-            method: "GET",
-            headers: {
-                accept: 'application/json',
-                Authorization: process.env.REACT_APP_TMDB_SECRET_KEY,
-            },
-        })
-            .then(response => response.json())
-            .then(response => setResults([...response.results]))
-            .catch(err => console.error(err));
-    }, [search])
 
     return (
         <nav className="border-gray-200 bg-gray-50">
@@ -58,9 +45,10 @@ function Navbar() {
                     </ul>
                 </div>
             </div>
-            {Object.keys(results).length > 0 &&
-                <MovieList setResults={setResults} list={results} />
+            {search &&
+                <HandleSearch search={search} />
             }
+
         </nav >
     );
 }

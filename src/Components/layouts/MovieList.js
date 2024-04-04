@@ -5,7 +5,7 @@ function MovieList({ list, setResults }) {
     return (
         <div className="z-20 w-full md:w-[70%] mx-auto bg-white divide-y overflow-hidden max-w-full divide-gray-100 rounded-lg shadow ">
             {list?.map(({ id, title, original_title, overview, release_date, backdrop_path, ...rest }) => (
-                <div className="flex w-full px-4 py-3 hover:bg-gray-100">
+                <div key={id} className="flex w-full px-4 py-3 hover:bg-gray-100">
                     <div className="flex-shrink-0">
                         <img className="object-contain h-20" src={`https://image.tmdb.org/t/p/w200/${backdrop_path}`} alt="movie poster" />
                     </div>
