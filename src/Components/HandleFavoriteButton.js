@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import heart from './svg/add_fav.svg'
 import unHeart from './svg/remove_fav.svg'
 
-function HandleFavorites({ favoriteStatus, movieId, setFavoriteStatus }) {
+function HandleFavoriteButton({ favoriteStatus, movieId, setFavoriteStatus }) {
 
     useEffect(() => {
         fetch(
@@ -38,4 +38,4 @@ function HandleFavorites({ favoriteStatus, movieId, setFavoriteStatus }) {
         </ button>
     )
 }
-export default HandleFavorites;
+export default HandleFavoriteButton;

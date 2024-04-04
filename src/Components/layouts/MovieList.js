@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-function MovieList({ list, setResults }) {
+function MovieList({ list, setResults = () => { } }) {
     return (
         <div className="z-20 w-full md:w-[70%] mx-auto bg-white divide-y overflow-hidden max-w-full divide-gray-100 rounded-lg shadow ">
             {list?.map(({ id, title, original_title, overview, release_date, backdrop_path, ...rest }) => (
