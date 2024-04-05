@@ -3,6 +3,7 @@ import HandleFavoriteButton from "../HandleFavoriteButton";
 import star_fill from '../svg/star_fill.svg';
 import star from '../svg/star.svg';
 import HandleRate from "../HandleRate";
+import HandleComments from "../HandleComments";
 
 function MovieDetails({ movieId, rate, movieDetails, favoriteStatus, setFavoriteStatus }) {
 
@@ -52,9 +53,10 @@ function MovieDetails({ movieId, rate, movieDetails, favoriteStatus, setFavorite
                     </ul>
                 </div>
                 {movieDetails.credits?.cast &&
-                    <ul role="list" className="w-full md:justify-around divide-y divide-gray-200 flex flex-col md:flex-row flex-wrap gap-1 py-3 sm:py-4 text-sm font-medium text-gray-900 truncate gap-3">
-                        <legend className="w-full">Cast :</legend>
-                        {movieDetails.credits.cast.map(({ name, profile_path, character, ...item }) => (
+                    <ul role="list" className="w-full my-5 md:justify-around divide-y divide-gray-200 flex flex-col md:flex-row flex-wrap gap-1 py-3 sm:py-4 text-sm font-medium text-gray-900 truncate gap-3">
+                        <legend className="w-full text-center font-bold text-2xl my-3">Cast</legend>
+                        {movieDetails.credits.cast.map(({ name, profile_path, character, ...items }) => (
+                            character &&
                             <li key={name} className="flex md:w-1/3 items-center">
                                 <div className="flex-shrink-0">
                                     <img className="w-12 h-14 object-cover object-top rounded-full" src={`https://image.tmdb.org/t/p/w200/${profile_path}`} alt="image" />
@@ -64,14 +66,14 @@ function MovieDetails({ movieId, rate, movieDetails, favoriteStatus, setFavorite
                                         {name}
                                     </p>
                                     <p className="text-xs font-thin italic text-gray-500 truncate">
-                                        as {character || 'unknow'}
+                                        as {character}
                                     </p>
                                 </div>
                             </li>
                         ))}
                     </ul>
                 }
-
+                <HandleComments movieId={movieId} />
             </div >
         </>
     )
