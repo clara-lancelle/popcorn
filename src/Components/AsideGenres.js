@@ -15,7 +15,6 @@ function AsideGenres({ setGenre }) {
             )
             .catch(err => console.error(err));
     }, []);
-    console.log(genres)
     return (
         <>
             <div className="text-center">

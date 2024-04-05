@@ -53,7 +53,6 @@ function Navbar() {
             {search &&
                 <HandleSearch search={search} />
             }
-
         </nav >
     );
 }

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import MovieList from "./layouts/MovieList";
 
-function HandleSearch(search) {
+function HandleSearch({ search }) {
     const [results, setResults] = useState([])
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/search/movie?query=${search}`, {
+        console.log(search)
+        fetch(`https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=en-US&page=1`, {
             method: "GET",
             headers: {
                 accept: 'application/json',
