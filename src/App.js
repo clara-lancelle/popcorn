@@ -3,7 +3,7 @@ import './App.css';
 import { Route, Routes } from "react-router-dom";
 import HandleFavoritePage from './Components/HandleFavoritePage';
 import Navbar from './Components/layouts/Navbar';
-import AsideGenres from './Components/AsideGenres';
+import HandleAsideGenres from './Components/HandleAsideGenres';
 import HandleMovieDetails from './Components/HandleMovieDetails';
 import HandleRatedPage from './Components/HandleRatedPage';
 import HandleMovieGallery from './Components/HandleMovieGallery';
@@ -20,7 +20,7 @@ function App() {
         <Route path="/rated" element={<HandleRatedPage />} />
         <Route path="/details" element={<HandleMovieDetails />} />
       </Routes>
-      <AsideGenres setGenre={setGenre} />
+      <HandleAsideGenres setGenre={setGenre} />
       <footer className="border-gray-200 bg-gray-100 justify-center w-full mt-5 flex items-center mx-auto p-4">
         <p> &copy; Lancelle Clara </p>
       </footer>
