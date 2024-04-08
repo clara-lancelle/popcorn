@@ -5,7 +5,6 @@ function HandleSearch({ search }) {
     const [results, setResults] = useState([])
 
     useEffect(() => {
-        console.log(search)
         fetch(`https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=en-US&page=1`, {
             method: "GET",
             headers: {

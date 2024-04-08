@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Route, Routes } from "react-router-dom";
 import HandleFavoritePage from './Components/HandleFavoritePage';
-import DisplayMovies from './Components/DisplayMovies';
 import Navbar from './Components/layouts/Navbar';
 import AsideGenres from './Components/AsideGenres';
 import HandleMovieDetails from './Components/HandleMovieDetails';
 import HandleRatedPage from './Components/HandleRatedPage';
+import HandleMovieGallery from './Components/HandleMovieGallery';
 
 function App() {
   const [genre, setGenre] = useState({})
@@ -15,7 +15,7 @@ function App() {
     <div className='min-h-full'>
       <Navbar />
       <Routes>
-        <Route path="/" element={<DisplayMovies genre={genre} setCurrentMovie={setCurrentMovie} currentMovie={currentMovie} />} />
+        <Route path="/" element={<HandleMovieGallery genre={genre} setCurrentMovie={setCurrentMovie} currentMovie={currentMovie} />} />
         <Route path="/fav" element={<HandleFavoritePage />} />
         <Route path="/rated" element={<HandleRatedPage />} />
         <Route path="/details" element={<HandleMovieDetails />} />

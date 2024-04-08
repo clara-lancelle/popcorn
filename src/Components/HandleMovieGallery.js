@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Card from "./layouts/Card";
+import Card from "./layouts/MovieGallery";
+import MovieGallery from "./layouts/MovieGallery";
 
-function DisplayMovies({ genre, setCurrentMovie, currentMovie }) {
+function HandleMovieGallery({ genre, setCurrentMovie, currentMovie }) {
     const [movies, setMovie] = useState([]);
 
     // if genre => display movie by genre else display trending movies
@@ -21,16 +22,9 @@ function DisplayMovies({ genre, setCurrentMovie, currentMovie }) {
 
     if (movies.length > 0) {
         return (
-            <>
-                <h1 className="my-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 underline underline-offset-3 decoration-8 decoration-red-400 text-center py-5">{genre.name ? genre.name : "Trending movies"}</h1>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-                    {movies?.map((movie, index) => (
-                        <Card movie={movie} key={index} setCurrentMovie={setCurrentMovie} />
-                    ))}
-                </div>
-            </>
+            <MovieGallery movies={movies} genre={genre} />
         );
     }
 }
 
-export default DisplayMovies;
+export default HandleMovieGallery;

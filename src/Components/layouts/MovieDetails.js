@@ -32,7 +32,7 @@ function MovieDetails({ movieId, rate, movieDetails, favoriteStatus, setFavorite
                         }
                         <p className="text-xs ml-3 text-gray-500 italic">{movieDetails.vote_average} /10 <span className="text-xs">({movieDetails.vote_count} votes)</span></p>
                     </div>
-                    <HandleRate movieId={movieId} rate={movieDetails?.account_states?.rated.value} />
+                    <HandleRate movieId={movieId} />
                     <div className="flex flex-row gap-1">
                         {movieDetails.genres?.map(({ id, name }) => (
                             <p key={id} className="text-xs italic text-gray-500">{name}</p>
