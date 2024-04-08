@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import useDebounce from "../../useDebounce";
 import HandleSearch from "../HandleSearch";
