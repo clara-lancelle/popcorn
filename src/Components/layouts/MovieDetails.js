@@ -1,4 +1,6 @@
 import React from "react";
+import YouTube from 'react-youtube';
+
 import HandleFavoriteButton from "../HandleFavoriteButton";
 import star_fill from '../svg/star_fill.svg';
 import star from '../svg/star.svg';
@@ -6,7 +8,17 @@ import HandleRate from "../HandleRate";
 import HandleComments from "../HandleComments";
 
 function MovieDetails({ movieId, rate, movieDetails, favoriteStatus, setFavoriteStatus }) {
-
+    const opts = {
+        height: '380',
+        width: '640',
+        playerVars: {
+            autoplay: 0,
+        },
+    };
+    const onReady = (e) => {
+        // access to player in all event handlers via event.target
+        e.target.pauseVideo();
+    }
     return (
         <>
             <h1 className="mt-5 mb-2 text-4xl font-extrabold leading-none tracking-tight text-gray-900 underline underline-offset-3 decoration-8 decoration-red-400 text-center py-5">{movieDetails.title}</h1>
@@ -72,6 +84,14 @@ function MovieDetails({ movieId, rate, movieDetails, favoriteStatus, setFavorite
                             </li>
                         ))}
                     </ul>
+                }
+                {movieDetails.videos &&
+                    <div className="w-full gap-2 flex flex-row flex-wrap justify-center">
+                        {movieDetails.videos?.results.map(({ key, type, site, official, ...rest }) => (
+                            type === "Trailer" && site === "YouTube" && official &&
+                            <YouTube key={key} videoId={key} opts={opts} onReady={onReady} />
+                        ))}
+                    </div>
                 }
                 <HandleComments movieId={movieId} />
             </div >

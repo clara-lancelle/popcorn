@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom"
+
 import MovieDetails from "./layouts/MovieDetails";
 
 function HandleMovieDetails() {
@@ -15,7 +16,7 @@ function HandleMovieDetails() {
     useEffect(() => {
         if (movieId) {
             fetch(
-                `https://api.themoviedb.org/3/movie/${movieId}?language=en-US&append_to_response=credits,account_states`
+                `https://api.themoviedb.org/3/movie/${movieId}?language=en-US&append_to_response=credits,account_states,videos`
                 , {
                     method: "GET",
                     headers: {
