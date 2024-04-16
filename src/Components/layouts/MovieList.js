@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function MovieList({ list, setResults = () => { } }) {
+function MovieList({ list, setResults }) {
     return (
         <div className="z-20 w-full md:w-[70%] mx-auto bg-white divide-y overflow-hidden max-w-full divide-gray-100 rounded-lg shadow ">
             {list?.map(({ id, name = null, known_for_department = null, media_type, profile_path = null, known_for = [], title = null, original_title = null, overview = null, release_date = null, backdrop_path = null, ...rest }) => (
